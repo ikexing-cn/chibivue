@@ -3,8 +3,23 @@ import { createApp, h } from 'chibivue'
 const app = createApp({
   render() {
     return h('div', {}, [
-      h('h1', {}, ['Hello world.', h('h2', {}, ['Hello world.'])]),
-      h('button', {}, ['click me!']),
+      h(
+        'h1',
+        {
+          style: 'color: blue; font-weight: bold;',
+        },
+        ['Hello World'],
+      ),
+      h(
+        'button',
+        {
+          onClick: () => {
+            // eslint-disable-next-line no-alert
+            alert('patch event successs!')
+          },
+        },
+        ['click me!'],
+      ),
     ])
   },
 })

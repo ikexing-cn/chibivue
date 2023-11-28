@@ -1,8 +1,8 @@
 import type { RendererOptions } from '../runtime-core'
 
-export const nodeOps: RendererOptions<Node> = {
-  createElement(type) {
-    return document.createElement(type)
+export const nodeOps: Omit<RendererOptions<Node>, 'patchProp'> = {
+  createElement(tagName) {
+    return document.createElement(tagName)
   },
   createText(text) {
     return document.createTextNode(text)
