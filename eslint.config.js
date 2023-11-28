@@ -2,7 +2,16 @@ import { sxzz } from '@sxzz/eslint-config'
 
 export default sxzz(
   [
-    /* your custom config */
+    {
+      rules: {
+        'unicorn/filename-case': ['off'],
+      },
+    },
   ],
-  { vue: true, prettier: true, markdown: false, unocss: false },
+  {
+    vue: true,
+    prettier: true,
+    markdown: false,
+    unocss: false,
+  },
 )
