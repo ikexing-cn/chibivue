@@ -1,0 +1,20 @@
+{
+  "name": "chibivue",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "keywords": [],
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "dev": "cd examples/playground && pnpm i && pnpm run dev"
+  },
+  "devDependencies": {
+    "@sxzz/eslint-config": "^3.7.5",
+    "@sxzz/prettier-config": "^2.0.0",
+    "@types/node": "^20.10.0",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0"
+  },
+  "prettier": "@sxzz/prettier-config"
+}
