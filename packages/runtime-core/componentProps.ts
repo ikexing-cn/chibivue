@@ -1,3 +1,4 @@
+import { camelize, hasOwn } from '../shared'
 import { reactive } from '../reactivity'
 import type { ComponentInternalInstance, Data } from './component'
 
@@ -20,7 +21,7 @@ export function initProps(
   instance.props = reactive(props)
 }
 
-export function setFullProps(
+function setFullProps(
   instance: ComponentInternalInstance,
   rawProps: Data | null,
   props: Data,
@@ -29,8 +30,9 @@ export function setFullProps(
 
   if (rawProps) {
     Object.entries(rawProps).forEach(([key, value]) => {
-      if (options && Object.prototype.hasOwnProperty.call(options, key)) {
-        props[key] = value
+      let camelKey
+      if (options && hasOwn(options, (camelKey = camelize(key)))) {
+        props[camelKey] = value
       }
     })
   }
@@ -40,5 +42,7 @@ export function updateProps(
   instance: ComponentInternalInstance,
   rawProps: Data | null,
 ) {
-  Object.assign(instance.props, rawProps)
+  Object.entries(rawProps ?? {}).forEach(([key, value]) => {
+    instance.props[camelize(key)] = value
+  })
 }

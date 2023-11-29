@@ -5,6 +5,7 @@ export default sxzz(
     {
       rules: {
         'unicorn/filename-case': ['off'],
+        'unicorn/prefer-string-replace-all': ['off'],
       },
     },
   ],
